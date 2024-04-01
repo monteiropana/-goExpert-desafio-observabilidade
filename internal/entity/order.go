@@ -6,16 +6,14 @@ type Order struct {
 	ID         string
 	Price      float64
 	Juros      float64
-	Quantity   int
 	FinalPrice float64
 }
 
-func NewOrder(id string, price, juros float64, quantity int) (*Order, error) {
+func NewOrder(id string, price, juros float64) (*Order, error) {
 	order := &Order{
-		ID:       id,
-		Price:    price,
-		Juros:    juros,
-		Quantity: quantity,
+		ID:    id,
+		Price: price,
+		Juros: juros,
 	}
 	err := order.IsValid()
 	if err != nil {

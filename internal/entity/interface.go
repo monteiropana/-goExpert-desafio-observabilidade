@@ -1,8 +1,11 @@
 // Entidades regras de negocios
 package entity
 
-type RepositoryOrder interface {
-	Save(order *Order) error
-	//GetListOrders
-	//GetTotalOrders
+//Regras de negocios
+//coracao da application
+
+type RepositoryOrderInterface interface {
+	SaveOrder(order *Order) error
+	// GetTotal() (int, error)
+	GetListOfOrders() ([]*Order, error)
 }
