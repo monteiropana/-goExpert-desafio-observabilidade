@@ -2,6 +2,8 @@ package entity
 
 import "errors"
 
+// regras de negocios sao essas
+// precisa de uma camada para ter a intencao do usuario
 type Order struct {
 	ID         string
 	Price      float64
