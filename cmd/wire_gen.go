@@ -7,11 +7,16 @@
 package main
 
 import (
-)
-
-import (
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/desafio/clean-arch/internal/infra/database"
+	"github.com/desafio/clean-arch/internal/usecase"
+	"github.com/desafio/clean-arch/internal/entity"
+	"github.com/desafio/clean-arch/internal/event"
+	"github.com/desafio/clean-arch/pkg/events"
+	"github.com/desafio/clean-arch/internal/infra/web"
+	"github.com/google/wire"
 )
+	
 
 // Injectors from wire.go:
 
