@@ -6,12 +6,12 @@ import (
 )
 
 type ListOrdersUseCase struct {
-	OrderRepository entity.RepositoryOrderInterface
+	OrderRepository entity.OrderRepositoryInterface
 	OrdersListed    events.EventInterface
 	EventDispatcher events.EventDispatcherInterface
 }
 
-func NewListOrdersUseCase(OrderRepository entity.RepositoryOrderInterface, OrdersListed events.EventInterface, EventDispatcher events.EventDispatcherInterface) *ListOrdersUseCase {
+func NewListOrdersUseCase(OrderRepository entity.OrderRepositoryInterface, OrdersListed events.EventInterface, EventDispatcher events.EventDispatcherInterface) *ListOrdersUseCase {
 	return &ListOrdersUseCase{
 		OrderRepository: OrderRepository,
 		OrdersListed:    OrdersListed,

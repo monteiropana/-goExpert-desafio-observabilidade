@@ -36,7 +36,7 @@ func (r *OrderRepository) Save(order *entity.Order) error {
 // }
 
 func (r *OrderRepository) GetListOfOrders() ([]*entity.Order, error) {
-	rows, err := r.Db.Query("SELECT id, price, tax, final_price FROM orders")
+	rows, err := r.Db.Query("SELECT id, price, Juros, final_price FROM orders")
 	if err != nil {
 		return nil, err
 	}

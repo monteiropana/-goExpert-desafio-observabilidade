@@ -7,6 +7,7 @@
 package main
 
 import (
+	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/desafio/clean-arch/internal/infra/database"
 	"github.com/desafio/clean-arch/internal/usecase"
@@ -15,6 +16,9 @@ import (
 	"github.com/desafio/clean-arch/pkg/events"
 	"github.com/desafio/clean-arch/internal/infra/web"
 	"github.com/google/wire"
+)
+import (
+	_ "github.com/go-sql-driver/mysql"
 )
 	
 

@@ -21,13 +21,13 @@ type OutputOderDTO struct {
 }
 
 type CreateOrderUseCase struct {
-	OrderRepository entity.RepositoryOrderInterface
+	OrderRepository entity.OrderRepositoryInterface
 	OrderCreated    EventsPkg.EventInterface
 	EventDispatcher EventsPkg.EventDispatcherInterface
 }
 
 func NewCreateOrderUseCase(
-	OrderRepository entity.RepositoryOrderInterface,
+	OrderRepository entity.OrderRepositoryInterface,
 	OrderCreated EventsPkg.EventInterface,
 	EventDispatcher EventsPkg.EventDispatcherInterface,
 ) *CreateOrderUseCase {
