@@ -2,5 +2,7 @@
 
 package model
 
+// package model
+
 type Query struct {
 }
