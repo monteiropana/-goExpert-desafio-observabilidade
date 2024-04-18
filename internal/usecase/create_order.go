@@ -45,7 +45,7 @@ func (c *CreateOrderUseCase) Execute(input InputOderDTO) (OutputOderDTO, error) 
 		Juros: input.Juros,
 	}
 	order.CalculaPrecoFInal()
-	if err := c.OrderRepository.SaveOrder(&order); err != nil {
+	if err := c.OrderRepository.Save(&order); err != nil {
 		return OutputOderDTO{}, err
 	}
 

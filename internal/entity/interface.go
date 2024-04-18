@@ -5,7 +5,7 @@ package entity
 //coracao da application
 
 type OrderRepositoryInterface interface {
-	SaveOrder(order *Order) error
+	Save(order *Order) error
 	// GetTotal() (int, error)
 	GetListOfOrders() ([]*Order, error)
 }
