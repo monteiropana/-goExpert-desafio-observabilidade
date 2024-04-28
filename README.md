@@ -14,6 +14,7 @@ query {
     Tax
   }
 }
+
 gRPC
 Para testar o serviço ListOrders com gRPC, use o seguinte comando no terminal:
 grpcurl -plaintext -proto <caminho_para_protofile> <endereço_servidor> pb.OrderService/ListOrders
