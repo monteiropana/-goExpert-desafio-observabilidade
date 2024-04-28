@@ -27,7 +27,7 @@ type Order struct {
 
 	Id         string  `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Price      float32 `protobuf:"fixed32,2,opt,name=price,proto3" json:"price,omitempty"`
-	Juros        float32 `protobuf:"fixed32,3,opt,name=tax,proto3" json:"tax,omitempty"`
+	Tax        float32 `protobuf:"fixed32,3,opt,name=tax,proto3" json:"tax,omitempty"`
 	FinalPrice float32 `protobuf:"fixed32,4,opt,name=final_price,json=finalPrice,proto3" json:"final_price,omitempty"`
 }
 
@@ -79,7 +79,7 @@ func (x *Order) GetPrice() float32 {
 
 func (x *Order) GetTax() float32 {
 	if x != nil {
-		return x.Juros
+		return x.Tax
 	}
 	return 0
 }
@@ -98,7 +98,7 @@ type CreateOrderRequest struct {
 
 	Id    string  `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Price float32 `protobuf:"fixed32,2,opt,name=price,proto3" json:"price,omitempty"`
-	Juros   float32 `protobuf:"fixed32,3,opt,name=tax,proto3" json:"tax,omitempty"`
+	Tax   float32 `protobuf:"fixed32,3,opt,name=tax,proto3" json:"tax,omitempty"`
 }
 
 func (x *CreateOrderRequest) Reset() {
@@ -149,7 +149,7 @@ func (x *CreateOrderRequest) GetPrice() float32 {
 
 func (x *CreateOrderRequest) GetTax() float32 {
 	if x != nil {
-		return x.Juros
+		return x.Tax
 	}
 	return 0
 }
@@ -161,7 +161,7 @@ type CreateOrderResponse struct {
 
 	Id         string  `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	Price      float32 `protobuf:"fixed32,2,opt,name=price,proto3" json:"price,omitempty"`
-	Juros        float32 `protobuf:"fixed32,3,opt,name=tax,proto3" json:"tax,omitempty"`
+	Tax        float32 `protobuf:"fixed32,3,opt,name=tax,proto3" json:"tax,omitempty"`
 	FinalPrice float32 `protobuf:"fixed32,4,opt,name=final_price,json=finalPrice,proto3" json:"final_price,omitempty"`
 }
 
@@ -213,7 +213,7 @@ func (x *CreateOrderResponse) GetPrice() float32 {
 
 func (x *CreateOrderResponse) GetTax() float32 {
 	if x != nil {
-		return x.Juros
+		return x.Tax
 	}
 	return 0
 }

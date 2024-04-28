@@ -7,15 +7,15 @@ import "errors"
 type Order struct {
 	ID         string
 	Price      float64
-	Juros      float64
+	Tax        float64
 	FinalPrice float64
 }
 
-func NewOrder(id string, price, juros float64) (*Order, error) {
+func NewOrder(id string, price, Tax float64) (*Order, error) {
 	order := &Order{
 		ID:    id,
 		Price: price,
-		Juros: juros,
+		Tax:   Tax,
 	}
 	err := order.IsValid()
 	if err != nil {
@@ -31,14 +31,14 @@ func (o *Order) IsValid() error {
 	if o.Price <= 0 {
 		return errors.New("invalid price")
 	}
-	if o.Juros <= 0 {
-		return errors.New("invalid juros")
+	if o.Tax <= 0 {
+		return errors.New("invalid Tax")
 	}
 	return nil
 }
 
 func (o *Order) CalculaPrecoFInal() error {
-	o.FinalPrice = o.Price + o.Juros
+	o.FinalPrice = o.Price + o.Tax
 	err := o.IsValid()
 	if err != nil {
 		return err

@@ -7,17 +7,17 @@ import (
 
 // recebe os dados e orquestra o processo
 // cria uma orden > insre no banco > e dispara o evento
-type InputOderDTO struct {
+type OrderInputDTO struct {
 	ID    string  `json:"id"`
 	Price float64 `json:"price"`
-	Juros float64 `json:"juros"`
+	Tax   float64 `json:"Tax"`
 }
 
 type OutputOderDTO struct {
 	ID         string  `json:"id"`
 	Price      float64 `json:"price"`
-	Juros      float64 `json:"juros"`
-	PriceFinal float64 `json:"price_final"`
+	Tax        float64 `json:"Tax"`
+	FinalPrice float64 `json:"price_final"`
 }
 
 type CreateOrderUseCase struct {
@@ -38,11 +38,11 @@ func NewCreateOrderUseCase(
 	}
 }
 
-func (c *CreateOrderUseCase) Execute(input InputOderDTO) (OutputOderDTO, error) {
+func (c *CreateOrderUseCase) Execute(input OrderInputDTO) (OutputOderDTO, error) {
 	order := entity.Order{
 		ID:    input.ID,
 		Price: input.Price,
-		Juros: input.Juros,
+		Tax:   input.Tax,
 	}
 	order.CalculaPrecoFInal()
 	if err := c.OrderRepository.Save(&order); err != nil {
@@ -52,8 +52,8 @@ func (c *CreateOrderUseCase) Execute(input InputOderDTO) (OutputOderDTO, error) 
 	dto := OutputOderDTO{
 		ID:         order.ID,
 		Price:      order.Price,
-		Juros:      order.Juros,
-		PriceFinal: order.FinalPrice,
+		Tax:        order.Tax,
+		FinalPrice: order.FinalPrice,
 	}
 
 	c.OrderCreated.SetPayload(dto)

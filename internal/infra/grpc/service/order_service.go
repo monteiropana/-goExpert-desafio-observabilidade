@@ -21,10 +21,10 @@ func NewOrderService(createOrderUseCase usecase.CreateOrderUseCase, listOrderUse
 }
 
 func (s *OrderService) CreateOrder(ctx context.Context, in *pb.CreateOrderRequest) (*pb.CreateOrderResponse, error) {
-	dto := usecase.InputOderDTO{
+	dto := usecase.OrderInputDTO{
 		ID:    in.Id,
 		Price: float64(in.Price),
-		Juros: float64(in.Juros),
+		Tax:   float64(in.Tax),
 	}
 	output, err := s.CreateOrderUseCase.Execute(dto)
 	if err != nil {
@@ -33,8 +33,8 @@ func (s *OrderService) CreateOrder(ctx context.Context, in *pb.CreateOrderReques
 	return &pb.CreateOrderResponse{
 		Id:         output.ID,
 		Price:      float32(output.Price),
-		Juros:      float32(output.Juros),
-		FinalPrice: float32(output.PriceFinal),
+		Tax:        float32(output.Tax),
+		FinalPrice: float32(output.FinalPrice),
 	}, nil
 }
 
@@ -49,8 +49,8 @@ func (s *OrderService) ListOrders(ctx context.Context, req *pb.ListOrdersRequest
 		pbOrders = append(pbOrders, &pb.Order{
 			Id:         order.ID,
 			Price:      float32(order.Price),
-			Juros:      float32(order.Juros),
-			FinalPrice: float32(order.PriceFinal),
+			Tax:        float32(order.Tax),
+			FinalPrice: float32(order.FinalPrice),
 		})
 	}
 

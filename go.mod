@@ -4,7 +4,6 @@ go 1.20
 
 require (
 	github.com/99designs/gqlgen v0.17.45
-	github.com/LeoAntunesBrombilla/clean_arch v0.0.0-20240121210230-da675fc2647e
 	github.com/google/wire v0.6.0
 	github.com/vektah/gqlparser/v2 v2.5.11
 	google.golang.org/grpc v1.63.2

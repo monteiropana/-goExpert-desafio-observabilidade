@@ -30,8 +30,8 @@ func (l *ListOrdersUseCase) Execute() ([]OutputOderDTO, error) {
 		dto := OutputOderDTO{
 			ID:         order.ID,
 			Price:      order.Price,
-			Juros:      order.Juros,
-			PriceFinal: order.FinalPrice,
+			Tax:        order.Tax,
+			FinalPrice: order.FinalPrice,
 		}
 		dtos = append(dtos, dto)
 	}
