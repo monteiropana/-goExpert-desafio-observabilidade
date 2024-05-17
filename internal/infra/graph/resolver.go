@@ -1,6 +1,9 @@
 package graph
 
-import "github.com/desafio/clean-arch/internal/usecase"
+import (
+	"github.com/desafio/clean-arch/internal/usecase"
+	//go:generate go run github.com/99designs/gqlgen generate
+)
 
 // This file will not be regenerated automatically.
 //
